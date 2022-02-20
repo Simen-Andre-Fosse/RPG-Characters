@@ -10,7 +10,15 @@ import java.util.Arrays;
 import java.util.HashMap;
 import java.util.HashSet;
 
+/**
+ * Abstract Hero class
+ * Parent class for characters
+ */
 public abstract class Hero implements HeroInterface{
+
+    /**
+     * Fields
+     */
     protected String name;
     protected int level = 1;
     protected BaseAttributes baseAtt;
@@ -21,11 +29,13 @@ public abstract class Hero implements HeroInterface{
     protected HashSet<ArmorType> validArmor;
 
 
-    public double getDPS() {
-        updateCharacterDPS();
-        return heroDPS;
-    }
-
+    /**
+     * The constructor
+     * @param name, the name of the Hero.
+     * @param baseAtt, The base attributes
+     * @param validWeapons, the valid weapons the hero can equip.
+     * @param validArmor, the valid armor the hero can equip.
+     */
     public Hero (String name, BaseAttributes baseAtt, HashSet<WeaponType> validWeapons, HashSet<ArmorType> validArmor){
         this.name = name;
         this.baseAtt = baseAtt;
@@ -36,22 +46,48 @@ public abstract class Hero implements HeroInterface{
         updateCharacterDPS();
     }
 
+    /**
+     *
+     * @return hero's DPS
+     */
+    public double getDPS() {
+        updateCharacterDPS();
+        return heroDPS;
+    }
+
+    /**
+     *
+     * @return name of hero
+     */
     public String getName() {
         return name;
     }
 
+    /**
+     * @return Level of hero
+     */
     public int getLevel() {
         return level;
     }
 
+    /**
+     * @return base attributes of Hero
+     */
     public BaseAttributes getBaseAtt() {
         return baseAtt;
     }
 
+    /**
+     * @return the total attributes.
+     */
     public BaseAttributes getTotalATT() {
         return totalATT;
     }
 
+
+    /**
+     * Method for initializing equipment storage.
+     */
     private void initializeEquipment(){
         equipment = new HashMap<>();
         equipment.put(SlotSpot.HEAD, null);
@@ -61,6 +97,9 @@ public abstract class Hero implements HeroInterface{
 
     }
 
+    /**
+     * Method that updates the total attributes.
+     */
     private void updateTotalAttributes(){
         Item head = equipment.get(SlotSpot.HEAD);
         Item body = equipment.get(SlotSpot.BODY);
@@ -78,6 +117,9 @@ public abstract class Hero implements HeroInterface{
 
     }
 
+    /**
+     * @return stats.
+     */
     public StringBuilder printStats(){
         StringBuilder stats = new StringBuilder();
         stats.append("Hero stats: \n")
@@ -91,14 +133,26 @@ public abstract class Hero implements HeroInterface{
         return stats;
     }
 
+    /**
+     * @return equipment.
+     */
     public HashMap<SlotSpot, Item> getEquipment(){
         return equipment;
     }
 
+    /**
+     * Method for leveling up the Hero.
+     */
     @Override
     public void levelUp() {
 
     }
+
+    /**
+     * Method for equipping
+     * @param item, the item.
+     * @throws Exception, the exception
+     */
     @Override
     public void equip(Item item) throws Exception{
         if(item.getRequiredLevel() > getLevel()){
@@ -121,6 +175,9 @@ public abstract class Hero implements HeroInterface{
             updateTotalAttributes();
     }
 
+    /**
+     * Method for updating characterDPS
+     */
     public abstract void updateCharacterDPS();
 }
 
