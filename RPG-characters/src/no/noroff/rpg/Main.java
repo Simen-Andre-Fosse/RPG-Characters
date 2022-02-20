@@ -6,6 +6,9 @@ import no.noroff.rpg.items.*;
 
 import java.util.Objects;
 
+/**
+ * Main class
+ */
 public class Main {
     public static void main(String[] args) throws Exception {
 

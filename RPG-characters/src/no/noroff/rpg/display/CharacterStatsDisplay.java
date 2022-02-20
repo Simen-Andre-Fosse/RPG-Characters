@@ -2,7 +2,16 @@ package no.noroff.rpg.display;
 
 import no.noroff.rpg.heroes.Hero;
 
+/**
+ * Class for displaying the stats of a Hero.
+ */
 public class CharacterStatsDisplay {
+
+    /**
+     * The static method for displaying a hero
+     * @param hero, the hero
+     * @return stats
+     */
     public static StringBuilder statsDisplay(Hero hero){
         StringBuilder stats = new StringBuilder();
         stats.append("Hero stats: \n")
