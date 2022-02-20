@@ -4,6 +4,10 @@ import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+/**
+ * Test class for Hero class.
+ * Testing functionality in Hero class and its children.
+ */
 class HeroTest {
 
     @Test void createCharacter_levelIsOne_expectLevelOneAtInstantiation(){

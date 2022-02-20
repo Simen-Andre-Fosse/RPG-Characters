@@ -8,6 +8,10 @@ import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+/**
+ * Testing class for Item class.
+ * Class for testing Item class functionality and its children's functionality.
+ */
 class ItemTest {
 
     @Test void equip_WarriorLevel1EquipsBowLevel2_ExpectsInvalidWeaponException(){
