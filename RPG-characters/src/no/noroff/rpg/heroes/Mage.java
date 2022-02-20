@@ -6,8 +6,16 @@ import no.noroff.rpg.items.*;
 import java.util.Arrays;
 import java.util.HashSet;
 
+/**
+ * Class for Mage
+ * child of Hero class.
+ */
 public class Mage extends Hero{
 
+    /**
+     * Constructor
+     * @param name, name of Mage
+     */
     public Mage(String name) {
         super(name,new BaseAttributes(1,1,8),
                 new HashSet<>(Arrays.asList(WeaponType.STAFF, WeaponType.WAND)),
@@ -15,6 +23,9 @@ public class Mage extends Hero{
 
     }
 
+    /**
+     * Method for leveling up.
+     */
     @Override
     public void levelUp() {
         baseAtt.increase(1,1,5);
@@ -22,6 +33,11 @@ public class Mage extends Hero{
         updateCharacterDPS();
     }
 
+    /**
+     * Method for equipping
+     * @param item, the item.
+     * @throws Exception, the exception.
+     */
     @Override
     public void equip(Item item) throws Exception {
         super.equip(item);
@@ -30,6 +46,9 @@ public class Mage extends Hero{
         }
     }
 
+    /**
+     * Method for updating characterDPS
+     */
     @Override
     public void updateCharacterDPS() {
         int weaponDPS = 1;

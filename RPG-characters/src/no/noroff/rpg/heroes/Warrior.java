@@ -6,13 +6,25 @@ import no.noroff.rpg.items.*;
 import java.util.Arrays;
 import java.util.HashSet;
 
+/**
+ * Class for hero, Warrior.
+ * Child of Hero class.
+ */
 public class Warrior extends Hero{
+
+    /**
+     * Constructor.
+     * @param name, name of Warrior.
+     */
     public Warrior(String name) {
         super(name, new BaseAttributes(5,2,1),
                 new HashSet<>(Arrays.asList(WeaponType.AXE, WeaponType.HAMMER, WeaponType.SWORD)),
                 new HashSet<>(Arrays.asList(ArmorType.MAIL, ArmorType.PLATE)));
     }
 
+    /**
+     * Method for leveling up.
+     */
     @Override
     public void levelUp() {
         baseAtt.increase(3,2,1);
@@ -20,6 +32,11 @@ public class Warrior extends Hero{
         updateCharacterDPS();
     }
 
+    /**
+     * Method for equipping item.
+     * @param item, the item.
+     * @throws Exception, the exception.
+     */
     @Override
     public void equip(Item item) throws Exception {
         super.equip(item);
@@ -28,6 +45,9 @@ public class Warrior extends Hero{
         }
     }
 
+    /**
+     * Method for updating characterDPS.
+     */
     @Override
     public void updateCharacterDPS() {
         int weaponDPS = 1;

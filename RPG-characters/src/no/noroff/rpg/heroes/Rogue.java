@@ -6,13 +6,25 @@ import no.noroff.rpg.items.*;
 import java.util.Arrays;
 import java.util.HashSet;
 
+/**
+ * Class for the hero, Rouge.
+ * Child of Hero class.
+ */
 public class Rogue extends Hero{
+
+    /**
+     * Constructor
+     * @param name, name of Rouge.
+     */
     public Rogue(String name) {
         super(name, new BaseAttributes(2,6,1),
                 new HashSet<>(Arrays.asList(WeaponType.DAGGER, WeaponType.SWORD)),
                 new HashSet<>(Arrays.asList(ArmorType.LEATHER, ArmorType.MAIL)));
     }
 
+    /**
+     * Method for leveling up.
+     */
     @Override
     public void levelUp() {
         baseAtt.increase(1,4,1);
@@ -20,6 +32,11 @@ public class Rogue extends Hero{
         updateCharacterDPS();
     }
 
+    /**
+     * Method for equipping item.
+     * @param item, the item.
+     * @throws Exception, the exception.
+     */
     @Override
     public void equip(Item item) throws Exception{
         super.equip(item);
@@ -28,6 +45,9 @@ public class Rogue extends Hero{
         }
     }
 
+    /**
+     * Method for updating characterDPS.
+     */
     @Override
     public void updateCharacterDPS() {
         int weaponDPS = 1;

@@ -6,14 +6,25 @@ import no.noroff.rpg.items.*;
 import java.util.Arrays;
 import java.util.HashSet;
 
+/**
+ * Class for the hero, Ranger.
+ * Child of Hero class
+ */
 public class Ranger extends Hero{
 
+    /**
+     * Constructor
+     * @param name name of Ranger.
+     */
     public Ranger(String name) {
         super(name, new BaseAttributes(1,7,1),
                 new HashSet<>(Arrays.asList(WeaponType.BOW)),
                 new HashSet<>(Arrays.asList(ArmorType.LEATHER, ArmorType.MAIL)));
     }
 
+    /**
+     * Method for leveling up.
+     */
     @Override
     public void levelUp() {
         baseAtt.increase(1,5,1);
@@ -21,6 +32,11 @@ public class Ranger extends Hero{
         updateCharacterDPS();
     }
 
+    /**
+     * Method for equipping
+     * @param item, the item.
+     * @throws Exception, the exception
+     */
     @Override
     public void equip(Item item) throws Exception{
         super.equip(item);
@@ -29,6 +45,9 @@ public class Ranger extends Hero{
         }
     }
 
+    /**
+     * Method for updating the characterDPS.
+     */
     @Override
     public void updateCharacterDPS() {
         int weaponDPS = 1;
